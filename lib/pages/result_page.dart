@@ -21,18 +21,18 @@ class ResultPage extends StatelessWidget {
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
-          title: const Center(child: Text('BMI CALCULATOR')),
+          title: const Center(child: Text('')),
         ),
         body: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             const Padding(
-              padding: EdgeInsets.only(left: 15),
+              padding: EdgeInsets.only(left: 15, top: 10),
               child: Expanded(
                   child: Text(
                 'Your Result',
                 style: TextStyle(
-                  fontSize: 35,
+                  fontSize: 40,
                   fontWeight: FontWeight.bold,
                 ),
               )),
@@ -41,42 +41,55 @@ class ResultPage extends StatelessWidget {
               flex: 7,
               child: ReusableCard(
                 myColor: inActiveCardColor,
-                cardChild: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text(
-                      resultText!,
-                      style: TextStyle(
-                          letterSpacing: 2,
-                          color: biColor,
-                          fontSize: 18,
-                          fontWeight: FontWeight.bold),
-                    ),
-                    Text(
-                      bmiCalculatedResult!,
-                      style: resultTextStyle,
-                    ),
-                    const SizedBox(
-                      height: 18,
-                    ),
-                    const Text(
-                      'Normal BMI range:',
-                      style: TextStyle(color: Colors.grey, fontSize: 19),
-                    ),
-                    const Text(
-                      '18.5 - 25 kg/m\u00b2',
-                      style: TextStyle(fontSize: 19),
-                    ),
-                    const SizedBox(
-                      height: 20,
-                    ),
-                    Text(
-                      resultDetail!,
-                      style: TextStyle(fontSize: 19),
-                    )
-                  ],
+                cardChild: Padding(
+                  padding: const EdgeInsets.all(20),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(
+                        resultText!,
+                        style: TextStyle(
+                            letterSpacing: 2,
+                            color: biColor,
+                            fontSize: 16,
+                            fontWeight: FontWeight.bold),
+                      ),
+                      Text(
+                        bmiCalculatedResult!,
+                        style: resultTextStyle,
+                      ),
+                      const SizedBox(
+                        height: 22,
+                      ),
+                      const Text(
+                        'Normal BMI range:',
+                        style: TextStyle(color: Colors.grey, fontSize: 19),
+                      ),
+                      const Text(
+                        '18.5 - 25 kg/m\u00b2',
+                        style: TextStyle(
+                          fontSize: 19,
+                        ),
+                      ),
+                      const SizedBox(
+                        height: 25,
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.only(left: 5, right: 5),
+                        child: Text(
+                          resultDetail!,
+                          style: const TextStyle(
+                            fontSize: 19,
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
               ),
+            ),
+            SizedBox(
+              height: 10,
             ),
             GestureDetector(
               onTap: () {
@@ -86,7 +99,7 @@ class ResultPage extends StatelessWidget {
               child: Container(
                 height: 80,
                 width: double.infinity,
-                color: maleSelectedColour,
+                color: buttonColor,
                 margin: const EdgeInsets.only(top: 10),
                 child: const Center(
                   child: Text(

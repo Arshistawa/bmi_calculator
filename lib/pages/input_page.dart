@@ -18,9 +18,9 @@ class InputPage extends StatefulWidget {
 
 class _InputPageState extends State<InputPage> {
   Gender? selectedGender;
-  int weight = 74;
-  int age = 15;
-  int height = 183;
+  int weight = 45;
+  int age = 27;
+  int height = 165;
 
   @override
   Widget build(BuildContext context) {
@@ -44,7 +44,7 @@ class _InputPageState extends State<InputPage> {
                     },
                     child: ReusableCard(
                       myColor: selectedGender == Gender.male
-                          ? maleSelectedColour
+                          ? maleSelectedColor
                           : inActiveCardColor,
                       cardChild: IconContent(
                         text: 'MALE',
@@ -105,7 +105,7 @@ class _InputPageState extends State<InputPage> {
                     data: const SliderThemeData(
                       activeTrackColor: Colors.white,
                       inactiveTrackColor: Color(0xFF4C4F5E),
-                      thumbColor: maleSelectedColour,
+                      thumbColor: buttonColor,
                     ),
                     child: Slider(
                       min: 120,
@@ -231,7 +231,7 @@ class _InputPageState extends State<InputPage> {
               print(resultDetails);
               double result = double.parse(bmi);
               if ((result < 18.5) || (result > 25)) {
-                resultColor = maleSelectedColour;
+                resultColor = femaleSelectedColor;
               } else {
                 resultColor = Color.fromARGB(255, 82, 214, 70);
               }
@@ -248,7 +248,7 @@ class _InputPageState extends State<InputPage> {
             child: Container(
               height: 80,
               width: double.infinity,
-              color: maleSelectedColour,
+              color: buttonColor,
               margin: const EdgeInsets.only(top: 10),
               child: const Center(
                 child: Text(
